@@ -1,0 +1,76 @@
+/* ========================================
+   FOOTER NEW - Pie de página principal
+   ========================================
+   Basado en el diseño de HubConnect.html
+   ======================================== */
+
+/* ========================================
+   CONTENEDOR PRINCIPAL DEL FOOTER
+   ======================================== */
+.footer-new {
+  margin-top: auto;
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 48px 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   CONTENIDO INTERIOR
+   ======================================== */
+.footer-new__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ========================================
+   LOGO + COPYRIGHT
+   ======================================== */
+.footer-new__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.footer-new__brand-icon {
+  color: #2b4bee;
+}
+
+/* ========================================
+   ENLACES DEL FOOTER
+   ======================================== */
+.footer-new__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.footer-new__link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-new__link:hover {
+  color: #2b4bee;
+}
+
+@media (max-width: 768px) {
+  .footer-new__inner {
+    flex-direction: column;
+  }
+
+  .footer-new__links {
+    gap: 16px;
+  }
+}

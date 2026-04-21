@@ -1,0 +1,175 @@
+/* ========================================
+   HEADER NEW - Cabecera principal
+   ========================================
+   Basado en el diseño de HubConnect.html
+   Usa la fuente Inter y Material Symbols
+   ======================================== */
+
+/* ========================================
+   CONTENEDOR PRINCIPAL DEL HEADER
+   ======================================== */
+.header-new {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   LADO IZQUIERDO: LOGO + NAVEGACIÓN
+   ======================================== */
+.header-new__left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ========================================
+   LOGO
+   ======================================== */
+.header-new__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #2b4bee;
+  text-decoration: none;
+}
+
+.header-new__logo-icon {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header-new__logo-text {
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
+.header-new__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-new__nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-new__nav-link:hover {
+  color: #2b4bee;
+}
+
+.header-new__nav-link--active {
+  font-weight: 600;
+  color: #2b4bee;
+}
+
+/* ========================================
+   LADO DERECHO: BÚSQUEDA + ACCIONES + AVATAR
+   ======================================== */
+.header-new__right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 16px;
+  align-items: center;
+}
+
+/* ========================================
+   BARRA DE BÚSQUEDA
+   ======================================== */
+.header-new__search {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.header-new__search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.header-new__search-input {
+  width: 100%;
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px 8px 40px;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.header-new__search-input::placeholder {
+  color: #94a3b8;
+}
+
+.header-new__search-input:focus {
+  box-shadow: 0 0 0 2px #2b4bee;
+}
+
+/* ========================================
+   BOTONES DE ACCIÓN (notificaciones, settings)
+   ======================================== */
+.header-new__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.header-new__action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  color: #475569;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-new__action-btn:hover {
+  background-color: #f1f5f9;
+  color: #2b4bee;
+}
+
+.header-new__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .header-new__nav {
+    display: none;
+  }
+
+  .header-new__search {
+    max-width: 200px;
+  }
+}
