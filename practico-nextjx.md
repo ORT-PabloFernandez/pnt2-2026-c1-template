@@ -115,8 +115,8 @@ Abrí `src/app/layout.js` y reemplazá su contenido por:
 
 ```jsx
 import "./globals.css";
-import HeaderNew from "../components/HeaderNew";
-import FooterNew from "../components/FooterNew";
+import HeaderNew from "./components/HeaderNew";
+import FooterNew from "./components/FooterNew";
 
 export const metadata = {
   title: "Rick & Morty App",
