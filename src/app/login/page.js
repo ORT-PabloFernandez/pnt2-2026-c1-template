@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const API_URL = "https://tp2backend-a5aqduchhdfrdffm.brazilsouth-01.azurewebsites.net";
 
 export default function LoginPage() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   // Estados para manejar el resultado del fetch
   const [cargando, setCargando] = useState(false);
@@ -15,6 +19,35 @@ export default function LoginPage() {
     e.preventDefault();
     // TODO implementar el fetch a /api/users/login
     console.log({ user, password });
+
+    setCargando(true);
+    setError("");
+
+    try {
+      const res = await fetch(`${API_URL}/api/users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: user, password })
+      });
+      if(!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || "Usuario o contraseña incorrectos");
+      }
+      // Salio Todo bien
+      const data = await res.json();
+      console.log("Login exitoso, token:", data.token);
+      // Aquí podrías guardar el token en localStorage o en un contexto global
+      localStorage.setItem("token", data.token);
+      router.push("/"); // redirecciona al home después de login exitoso
+
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setCargando(false);
+    }
+
   }
 
   return (

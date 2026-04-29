@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Buscador from "./components/Buscador";
+import { use } from "react";
 
 async function getCharacters(page) {
   const res = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`, {
@@ -24,6 +25,7 @@ export default async function HomePage({ searchParams }) {
   return (
     <section style={{ maxWidth: 1100, margin: "0 auto", padding: 24 }}>
       <h1 style={{ marginBottom: 16 }}>Personajes</h1>
+      
 
       {/* Buscador + listado (componente cliente) */}
       <Buscador personajes={characters} />

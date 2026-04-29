@@ -3,6 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 
+const API_URL = "https://tp2backend-a5aqduchhdfrdffm.brazilsouth-01.azurewebsites.net";
+
+
+
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +20,33 @@ export default function RegisterPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     console.log({ name, email, password });
-    
+    setCargando(true);
+    setError("");
+    setOk(false);
+
+    try {
+      const res = await fetch(`${API_URL}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password })
+      });
+      if(!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || "No se pudo registrar el usuario");
+      }
+      // Salio Todo bien
+      setOk(true);
+      setName("");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      
+    }
+   
   }
 
   return (
